@@ -11,7 +11,6 @@ namespace FrontEndGameplayTags
 	// Front End Widgets
 	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_PressAnyKeyScreen, "FrontEnd.Widget.PressAnyKeyScreen");
 	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_MainMenuScreen, "FrontEnd.Widget.MainMenuScreen");
-
-	
+	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_OptionsScreen, "FrontEnd.Widget.OptionsScreen");
 	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_ConfirmScreen,"FrontEnd.Widget.ConfirmScreen");
 }
