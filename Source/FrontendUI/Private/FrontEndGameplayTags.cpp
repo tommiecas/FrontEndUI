@@ -13,4 +13,9 @@ namespace FrontEndGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_MainMenuScreen, "FrontEnd.Widget.MainMenuScreen");
 	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_OptionsScreen, "FrontEnd.Widget.OptionsScreen");
 	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Widget_ConfirmScreen,"FrontEnd.Widget.ConfirmScreen");
+
+	
+	//Frontend Options Image
+	UE_DEFINE_GAMEPLAY_TAG(FrontEnd_Image_TestImage,"FrontEnd.Image.TestImage");
+	
 }

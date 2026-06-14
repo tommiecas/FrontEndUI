@@ -20,4 +20,8 @@ class FRONTENDUI_API UFrontEndFunctionLibrary : public UBlueprintFunctionLibrary
 public:
 	UFUNCTION(BlueprintPure, Category = "FrontEnd Function Library")
 	static TSoftClassPtr<UWidget_ActivatableBase> GetFrontEndSoftWidgetClassByTag( UPARAM(meta = (Categories = "FrontEnd.Widget")) FGameplayTag InWidgetTag);
+
+	
+	UFUNCTION(BlueprintPure, Category = "Frontend Function Library")
+	static TSoftObjectPtr<UTexture2D> GetOptionsSoftImageByTag(UPARAM(meta = (Categories = "FrontEnd.Image")) FGameplayTag InImageTag);
 };

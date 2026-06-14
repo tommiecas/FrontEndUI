@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "FrontEndTypes/FrontEndEnumTypes.h"
 #include "ListDataObject_Base.generated.h"
 
 #define LIST_DATA_ACCESSOR(DataType, PropertyName) \
@@ -13,13 +14,17 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Abstract)
 class FRONTENDUI_API UListDataObject_Base : public UObject
 {
 	GENERATED_BODY()
 
 	
 public:
+
+	DECLARE_MULTICAST_DELEGATE_TwoParams(FOnListDataModifiedDelegate, UListDataObject_Base*, EOptionsListDataModifyReason)
+	FOnListDataModifiedDelegate OnListDataModified;
+	
 	LIST_DATA_ACCESSOR(FName,DataID)
 	LIST_DATA_ACCESSOR(FText,DataDisplayName)
 	LIST_DATA_ACCESSOR(FText,DescriptionRichText)
@@ -33,9 +38,22 @@ public:
 	virtual TArray<UListDataObject_Base*> GetAllChildListData() const { return TArray<UListDataObject_Base*>(); }
 	virtual bool HasAnyChildListData() const { return false; }
 
+	
+	void SetShouldApplySettingsChangeImmediately(bool bShouldApplySettingsChangeRightAway) { bShouldApplySettingsChangeImmediately = bShouldApplySettingsChangeRightAway;}
+
+	// The Child Class should override them to provide implementations for resetting the data.
+	virtual bool HasDefaultValue() const { return false; }
+	virtual bool CanResetBackToDefaultValue() const { return false; }
+	virtual bool TryResetBackToDefaultValue() { return false; }
+	
+	UPROPERTY()
+	bool bShouldApplySettingsChangeImmediately = false;
+
 protected:
 	// Empty in base class. The child classes should override it to handle the initialization needed accordingly.
 	virtual void OnDataObjectInitialized();
+
+	virtual void NotifyListDataModified(UListDataObject_Base* ModifiedData, EOptionsListDataModifyReason ModifyReason = EOptionsListDataModifyReason::DirectlyModified);
 	
 
 private:
@@ -47,4 +65,5 @@ private:
 
 	UPROPERTY(Transient)
 	UListDataObject_Base* ParentData;
+
 };

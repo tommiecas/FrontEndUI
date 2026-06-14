@@ -6,6 +6,7 @@
 #include "UObject/NoExportTypes.h"
 #include "OptionsDataRegistry.generated.h"
 
+class UListDataObject_Base;
 class UListDataObject_Collection;
 /**
  * 
@@ -22,6 +23,7 @@ public:
 
 	const TArray<UListDataObject_Collection*>& GetRegisteredOptionsTabCollections() const { return RegisteredOptionsTabCollections;}
 
+	TArray<UListDataObject_Base*> GetListSourceItemsBySelectedTabID(const FName& InSelectedTabID) const;
 private:
 	void InitGameplayCollectionTab();
 	void InitAudioCollectionTab();

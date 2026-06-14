@@ -15,4 +15,8 @@ namespace FrontEndGameplayTags
 	FRONTENDUI_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrontEnd_Widget_MainMenuScreen);
 	FRONTENDUI_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrontEnd_Widget_OptionsScreen);
 	FRONTENDUI_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrontEnd_Widget_ConfirmScreen);
+
+	
+	//Frontend Options Image
+	FRONTENDUI_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrontEnd_Image_TestImage);
 }
